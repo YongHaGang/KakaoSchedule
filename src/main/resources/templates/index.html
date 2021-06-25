@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Kakao JavaScript SDK</title>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script type="text/javascript">
+        var myCookie = getCookie('authorize-access-token')
+        if (myCookie == null) {
+            console.log('cookie is not exist')
+        } else {
+            console.log('cookie is exist')
+            location.href='http://localhost:8080/main'
+        }
+        // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('fc0937b20433f9ad08f101c4222cd455');
+
+        // SDK 초기화 여부를 판단합니다.
+        console.log(Kakao.isInitialized());
+        function kakaoLogin() {
+            Kakao.Auth.login({
+                success: function (response) {
+                    Kakao.API.request({
+                        url: '/v2/user/me',
+                        success: function (response) {
+                            console.log(response.kakao_account.profile.nickname)
+                            console.log(response.kakao_account.profile.profile_image_url)
+                            console.log(Kakao.Auth.getAccessToken())
+                            setCookie('authorize-access-token', Kakao.Auth.getAccessToken())
+                            location.href='http://localhost:8080/main'
+                        },
+                        fail: function (error) {
+                            console.log(error)
+                        },
+                    })
+                },
+                fail: function (error) {
+                    console.log(error)
+                },
+            })
+        }
+
+        function getCookie(name) {
+            var dc = document.cookie;
+            var prefix = name + "=";
+            var begin = dc.indexOf("; " + prefix);
+            if (begin == -1) {
+                begin = dc.indexOf(prefix);
+                if (begin != 0) return null;
+            }
+            else
+            {
+                begin += 2;
+                var end = document.cookie.indexOf(";", begin);
+                if (end == -1) {
+                end = dc.length;
+                }
+            }
+            // because unescape has been deprecated, replaced with decodeURI
+            //return unescape(dc.substring(begin + prefix.length, end));
+            return decodeURI(dc.substring(begin + prefix.length, end));
+        }
+
+        function setCookie(name,value,exdays) {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+            document.cookie=name + "=" + c_value;
+        }
+
+        function removeCookie(name) {
+            document.cookie = name+'=; Max-Age=-99999999;';
+        }
+    </script>
+</head>
+<body>
+    <a id="custom-login-btn" href="javascript:kakaoLogin()">
+        <img
+            src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+            width="222"
+        />
+    </a>
+    <p th:text="${name}"></p>
+
+</body>
+</html>
