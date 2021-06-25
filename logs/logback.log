@@ -1,9 +1,0 @@
-[2021-06-19 19:28:53:556][main] INFO  c.y.toy1.MyToyProjectApplication - Starting MyToyProjectApplication using Java 16.0.1 on MGKRD10-NA10EZN with PID 14940 (D:\workspace\MyToyProject\target\classes started by yongha.gang in D:\workspace\MyToyProject)
-[2021-06-19 19:28:53:558][main] INFO  c.y.toy1.MyToyProjectApplication - No active profile set, falling back to default profiles: default
-[2021-06-19 19:28:56:3105][main] INFO  c.y.toy1.MyToyProjectApplication - Started MyToyProjectApplication in 2.917 seconds (JVM running for 3.285)
-[2021-06-19 19:30:39:536][main] INFO  c.y.toy1.MyToyProjectApplication - Starting MyToyProjectApplication using Java 16.0.1 on MGKRD10-NA10EZN with PID 928 (D:\workspace\MyToyProject\target\classes started by yongha.gang in D:\workspace\MyToyProject)
-[2021-06-19 19:30:39:545][main] INFO  c.y.toy1.MyToyProjectApplication - No active profile set, falling back to default profiles: default
-[2021-06-19 19:30:41:3212][main] INFO  c.y.toy1.MyToyProjectApplication - Started MyToyProjectApplication in 3.04 seconds (JVM running for 3.384)
-[2021-06-19 19:36:58:570][main] INFO  c.y.toy1.MyToyProjectApplication - Starting MyToyProjectApplication using Java 16.0.1 on MGKRD10-NA10EZN with PID 6244 (D:\workspace\MyToyProject\target\classes started by yongha.gang in D:\workspace\MyToyProject)
-[2021-06-19 19:36:58:575][main] INFO  c.y.toy1.MyToyProjectApplication - No active profile set, falling back to default profiles: default
-[2021-06-19 19:37:01:3215][main] INFO  c.y.toy1.MyToyProjectApplication - Started MyToyProjectApplication in 3.033 seconds (JVM running for 3.412)
