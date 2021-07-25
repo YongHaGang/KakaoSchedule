@@ -17,6 +17,11 @@
 
         // SDK 초기화 여부를 판단합니다.
         console.log(Kakao.isInitialized());
+        function kakaoAuthorize() {
+            Kakao.Auth.authorize({
+                redirectUri: 'http://localhost:8080/main'
+            });
+        }
         function kakaoLogin() {
             Kakao.Auth.login({
                 success: function (response) {
@@ -74,7 +79,7 @@
     </script>
 </head>
 <body>
-    <a id="custom-login-btn" href="javascript:kakaoLogin()">
+    <a id="custom-login-btn" href="javascript:kakaoAuthorize()">
         <img
             src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
             width="222"

@@ -4,15 +4,17 @@
     <title>after login</title>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
+        var domain = 'http://localhost:8080/'
         var myCookie = getCookie('authorize-access-token')
-        if (myCookie == null) {
+        /*if (myCookie == null) {
             console.log('cookie is not exist')
-            location.href='http://localhost:8080/'
+            location.href=domain
         } else {
             console.log('cookie is exist')
-        }
+        }*/
         Kakao.init('fc0937b20433f9ad08f101c4222cd455');
         console.log(Kakao.isInitialized());
+        console.log(Kakao.Auth.getAccessToken())
         function displayToken() {
           const token = getCookie('authorize-access-token')
           if(token) {
@@ -49,7 +51,7 @@
                 } else {
                     console.log('cookie is exist')
                 }
-                location.href='http://localhost:8080/'
+                location.href=domain
             }
         }
 
