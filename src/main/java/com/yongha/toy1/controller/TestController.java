@@ -38,6 +38,7 @@ public class TestController {
         Test test = new Test();
         test.setText(text);
         testRepository.save(test);
+        logger.info(text);
         return new ResponseEntity<TestDTO>(new TestDTO(test), HttpStatus.ACCEPTED);
     }
 }

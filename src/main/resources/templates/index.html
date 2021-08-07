@@ -5,12 +5,13 @@
     <title>Kakao JavaScript SDK</title>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script type="text/javascript">
+        var domain = 'http://192.168.35.119:8080/'
         var myCookie = getCookie('authorize-access-token')
         if (myCookie == null) {
             console.log('cookie is not exist')
         } else {
             console.log('cookie is exist')
-            location.href='http://localhost:8080/main'
+            location.href=domain + 'login'
         }
         // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
         Kakao.init('fc0937b20433f9ad08f101c4222cd455');
@@ -19,7 +20,7 @@
         console.log(Kakao.isInitialized());
         function kakaoAuthorize() {
             Kakao.Auth.authorize({
-                redirectUri: 'http://localhost:8080/main'
+                redirectUri: domain + 'login'
             });
         }
         function kakaoLogin() {
@@ -32,7 +33,7 @@
                             console.log(response.kakao_account.profile.profile_image_url)
                             console.log(Kakao.Auth.getAccessToken())
                             setCookie('authorize-access-token', Kakao.Auth.getAccessToken())
-                            location.href='http://localhost:8080/main'
+                            location.href=domain + 'login'
                         },
                         fail: function (error) {
                             console.log(error)
