@@ -21,12 +21,13 @@ public class KakaoAuthRequest {
     @JsonProperty("code")
     private String code = "";            // 인가 코드 받기 요청으로 얻은 인가 코드
     @JsonProperty("client_secret")
-    private String clientSecret = "EZlCIkqcg3hOsp9r5JonGG8s19WAvZEV"; // 토큰 발급 시, 보안을 강화하기 위해 추가 확인하는 코드
+    private String clientSecret = ""; // 토큰 발급 시, 보안을 강화하기 위해 추가 확인하는 코드
 
-    public KakaoAuthRequest(String clientId, String redirectUri, String code) {
+    public KakaoAuthRequest(String clientId, String redirectUri, String code, String clientSecret) {
         this.clientId = clientId;
         this.redirectUri = redirectUri;
         this.code = code;
+        this.clientSecret = clientSecret;
     }
 
 
